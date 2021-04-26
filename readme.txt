@@ -3,6 +3,8 @@ John Cunningham
 NOTE: To run this program on a linux system, ensure that you have the
 GCC GNU C compiler.
 
+To see full language requirements, please examine HW4 PL0
+
 How to run this program:
 1. Open a command prompt (Windows OS) or a terminal (Linux).
 
