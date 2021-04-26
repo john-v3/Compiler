@@ -1,0 +1,477 @@
+This is a list of most of the errors that can occur when executing this code.
+Outputs are assuming you want to print all elements to screen
+
+-------------------------------------------------------------------------------
+Error 1: Use of = instead of :=
+Example that generates error:
+
+var y;
+begin
+y = 43;
+end.
+
+output:
+Lexeme List:
+29 2 y 18 21 2 y 9 3 43 18 22 19 
+
+Symbolic Representation:
+varsym identsym y semicolonsym beginsym identsym y eqsym 43 semicolonsym endsym periodsym 
+
+Error, use of "=" symbol instead of ":=" symbol in statement
+
+
+-------------------------------------------------------------------------------
+
+Error 2: = must be followed by a number.
+Example that generates error:
+
+const y = ;.
+
+Lexeme List:
+28 2 y 9 18 19 
+
+Symbolic Representation:
+constsym identsym y eqsym semicolonsym periodsym 
+
+Error 2 in constants declaration, "=" must be follwed by a number
+
+
+-------------------------------------------------------------------------------
+
+
+Error 3: Identifier must be followed by :=
+
+Example that generates error:
+
+var x, y, z;
+begin
+y := 32;
+z 43;
+
+end.
+
+Output:
+Lexeme List:
+29 2 x 17 2 y 17 2 z 18 21 2 y 20 3 32 18 2 z 3 43 18 22 19 
+
+Symbolic Representation:
+varsym identsym x commasym identsym y commasym identsym z semicolonsym beginsym identsym y becomessym 32 semicolonsym identsym z 43 semicolonsym endsym periodsym 
+
+Error 3, Missing ":=" symbol in statement
+
+
+-------------------------------------------------------------------------------
+
+
+Error 4: const, var must be followed by an identifier
+
+Example that generates error:
+
+var;
+begin
+y := 32;
+z 43;
+end.
+
+Output:
+
+Lexeme List:
+29 18 21 2 y 20 3 32 18 2 z 3 43 18 22 19 
+
+Symbolic Representation:
+varsym semicolonsym beginsym identsym y becomessym 32 semicolonsym identsym z 43 semicolonsym endsym periodsym 
+
+error 4 in variable declarations, var symbol not followed by identfier.
+
+
+-------------------------------------------------------------------------------
+
+
+Error 5: Semicolon or comma missing
+
+Example that generates error:
+
+var f, g, ffe;
+begin
+f := 43
+end.
+
+Output:
+Lexeme List:
+29 2 f 17 2 g 2 ffe 18 
+
+Symbolic Representation:
+varsym identsym f commasym identsym g identsym ffe semicolonsym 
+
+Error in variable declarations, missing a comma in Var declaration.
+
+
+-------------------------------------------------------------------------------
+
+
+Error 6: Statement expected
+
+Example that generates error:
+var f, g, ffe;
+begin
+f := 4;
+g := ;
+
+end.
+
+Output:
+Lexeme List:
+29 2 f 17 2 g 17 2 ffe 18 21 2 f 20 3 4 18 2 g 20 18 22 19 
+
+Symbolic Representation:
+varsym identsym f commasym identsym g commasym identsym ffe semicolonsym beginsym identsym f becomessym 4 semicolonsym identsym g becomessym semicolonsym endsym periodsym 
+
+Error 6, expression expected for assignment of variable g
+
+
+-------------------------------------------------------------------------------
+
+Error 7: Incorrect symbol after statement.
+
+Example that generates error:
+var f3a, g, ffe;
+begin
+f3a := 4;
+g := 43;
+
+end. ds
+
+Output:
+Lexeme List:
+29 2 f3a 17 2 g 17 2 ffe 18 21 2 f3a 20 3 4 18 2 g 20 3 43 18 22 19 2 ds 
+
+Symbolic Representation:
+varsym identsym f3a commasym identsym g commasym identsym ffe semicolonsym beginsym identsym f3a becomessym 4 semicolonsym identsym g becomessym 43 semicolonsym endsym periodsym identsym ds 
+
+error 7, incorrect symbol after statement
+
+
+
+-------------------------------------------------------------------------------
+
+Error 8: Period expected
+
+Example Code that generates error:
+var f3a, g, ffe;
+begin
+f3a := 4;
+g := 43;
+
+end
+
+Output:
+Lexeme List:
+29 2 f3a 17 2 g 17 2 ffe 18 21 2 f3a 20 3 4 18 2 g 20 3 43 18 22 
+
+Symbolic Representation:
+varsym identsym f3a commasym identsym g commasym identsym ffe semicolonsym beginsym identsym f3a becomessym 4 semicolonsym identsym g becomessym 43 semicolonsym endsym 
+
+error 8, program doesn't end with "." symbol
+
+
+-------------------------------------------------------------------------------
+Error 9: semicolon missing.
+
+Example Code that generates error:
+const f3a=32, g=32;
+var f,l,k;
+begin
+f := 43
+l := 2;
+end.
+
+Output:
+Lexeme List:
+28 2 f3a 9 3 32 17 2 g 9 3 32 18 29 2 f 17 2 l 17 2 k 18 21 2 f 20 3 43 2 l 20 3 2 18 22 19 
+
+Symbolic Representation:
+constsym identsym f3a eqsym 32 commasym identsym g eqsym 32 semicolonsym varsym identsym f commasym identsym l commasym identsym k semicolonsym beginsym identsym f becomessym 43 identsym l becomessym 2 semicolonsym endsym periodsym 
+
+Error 9, semicolon is missing in statement.
+
+
+-------------------------------------------------------------------------------
+Error 10: Undeclared identifier
+
+Example code that generates error:
+const f3a=32, g=32;
+var f,l,k;
+begin
+fd := 43
+l := 2;
+end.
+
+Output:
+Lexeme List:
+28 2 f3a 9 3 32 17 2 g 9 3 32 18 29 2 f 17 2 l 17 2 k 18 21 2 fd 20 3 43 2 l 20 3 2 18 22 19 
+
+Symbolic Representation:
+constsym identsym f3a eqsym 32 commasym identsym g eqsym 32 semicolonsym varsym identsym f commasym identsym l commasym identsym k semicolonsym beginsym identsym fd becomessym 43 identsym l becomessym 2 semicolonsym endsym periodsym 
+
+Error, undeclared symbol "fd" is detected
+
+
+-------------------------------------------------------------------------------
+Error 11: Assignment to constant not allowed
+
+Example code that generates error:
+const f3a=32, g=32;
+var f,l,k;
+begin
+f3a := 43;
+l := 2;
+end.
+
+Output:
+Symbolic Representation:
+Lexeme List:
+28 2 f3a 9 3 32 17 2 g 9 3 32 18 29 2 f 17 2 l 17 2 k 18 21 2 f3a 20 3 43 18 2 l 20 3 2 18 22 19 
+
+Symbolic Representation:
+constsym identsym f3a eqsym 32 commasym identsym g eqsym 32 semicolonsym varsym identsym f commasym identsym l commasym identsym k semicolonsym beginsym identsym f3a becomessym 43 semicolonsym identsym l becomessym 2 semicolonsym endsym periodsym 
+
+Error 11, f3a is a constant and cannot be overwritten
+
+-------------------------------------------------------------------------------
+Error 12: Assignment operator expected
+
+Example code that generates error:
+const f3a=32, g=32;
+var f,l,k;
+begin
+f  43;
+l := 2;
+end.
+
+Output:
+Lexeme List:
+28 2 f3a 9 3 32 17 2 g 9 3 32 18 29 2 f 17 2 l 17 2 k 18 21 2 f 3 43 18 2 l 20 3 2 18 22 19 
+
+Symbolic Representation:
+constsym identsym f3a eqsym 32 commasym identsym g eqsym 32 semicolonsym varsym identsym f commasym identsym l commasym identsym k semicolonsym beginsym identsym f 43 semicolonsym identsym l becomessym 2 semicolonsym endsym periodsym 
+
+Error 12, Missing ":=" symbol in statement
+
+-------------------------------------------------------------------------------
+Error 13: then expected
+
+Example code that generates error:
+const f3a=32, g=32;
+var f,l,k;
+begin
+f := 43;
+if f > 0 f := f - 1;
+end.
+
+Output:
+Lexeme List:
+28 2 f3a 9 3 32 17 2 g 9 3 32 18 29 2 f 17 2 l 17 2 k 18 21 2 f 20 3 43 18 23 2 f 13 3 0 2 f 20 2 f 5 3 1 18 22 19 
+
+Symbolic Representation:
+constsym identsym f3a eqsym 32 commasym identsym g eqsym 32 semicolonsym varsym identsym f commasym identsym l commasym identsym k semicolonsym beginsym identsym f becomessym 43 semicolonsym ifsym identsym f gtrsym 0 identsym f becomessym identsym f minussym 1 semicolonsym endsym periodsym 
+
+Error 13, if symbol not eventually followed by then symbol
+
+-------------------------------------------------------------------------------
+Error 15: do expected
+
+Example code that generates error:
+const f3a=32, g=32;
+var f,l,k;
+begin
+f := 43;
+l := 2;
+
+while f > 22 f := f - 2;
+end.
+
+
+Output:
+
+Lexeme List:
+28 2 f3a 9 3 32 17 2 g 9 3 32 18 29 2 f 17 2 l 17 2 k 18 21 2 f 20 3 43 18 2 l 20 3 2 18 25 2 f 13 3 22 2 f 20 2 f 5 3 2 18 22 19 
+
+Symbolic Representation:
+constsym identsym f3a eqsym 32 commasym identsym g eqsym 32 semicolonsym varsym identsym f commasym identsym l commasym identsym k semicolonsym beginsym identsym f becomessym 43 semicolonsym identsym l becomessym 2 semicolonsym whilesym identsym f gtrsym 22 identsym f becomessym identsym f minussym 2 semicolonsym endsym periodsym 
+
+error, while symbol not eventually followed by a do symbol
+
+-------------------------------------------------------------------------------
+Error 16: Relational operator expected
+
+Example code that generates error:
+var f3a, g, ffe;
+begin
+f3a := 4;
+g := 43;
+
+if g 43 then g := 0;
+
+end.
+
+
+Output:
+Lexeme List:
+29 2 f3a 17 2 g 17 2 ffe 18 21 2 f3a 20 3 4 18 2 g 20 3 43 18 23 2 g 3 43 24 2 g 20 3 0 18 22 19 
+
+Symbolic Representation:
+varsym identsym f3a commasym identsym g commasym identsym ffe semicolonsym beginsym identsym f3a becomessym 4 semicolonsym identsym g becomessym 43 semicolonsym ifsym identsym g 43 thensym identsym g becomessym 0 semicolonsym endsym periodsym 
+
+Error 16 in condition, relational operation missing in a conditional statement
+
+-------------------------------------------------------------------------------
+Error 17: Right parenthesis missing
+
+Example code that generates error:
+var f3a, g, ffe;
+begin
+f3a := 4;
+g := 43;
+
+g := (4;
+
+end.
+
+
+Output:
+
+Lexeme List:
+29 2 f3a 17 2 g 17 2 ffe 18 21 2 f3a 20 3 4 18 2 g 20 3 43 18 2 g 20 15 3 4 18 22 19 
+
+Symbolic Representation:
+varsym identsym f3a commasym identsym g commasym identsym ffe semicolonsym beginsym identsym f3a becomessym 4 semicolonsym identsym g becomessym 43 semicolonsym identsym g becomessym lparentsym 4 semicolonsym endsym periodsym 
+
+error 17 in factor, left parethesis not ended with right parethesis
+
+-------------------------------------------------------------------------------
+Error 18: The preceding factor cannot begin with this symbol
+Example code that generates error:
+
+
+Output:
+-------------------------------------------------------------------------------
+Error 19: Expression cannot begin with this symbol
+
+Example code that generates error:
+var f3a, g, ffe;
+begin
+f3a := 4;
+g := 43;
+
+g := then;
+
+end.
+
+Output:
+Lexeme List:
+29 2 f3a 17 2 g 17 2 ffe 18 21 2 f3a 20 3 4 18 2 g 20 3 43 18 2 g 20 24 18 22 19 
+
+Symbolic Representation:
+varsym identsym f3a commasym identsym g commasym identsym ffe semicolonsym beginsym identsym f3a becomessym 4 semicolonsym identsym g becomessym 43 semicolonsym identsym g becomessym thensym semicolonsym endsym periodsym 
+
+error 19, invalid symbol detected
+
+-------------------------------------------------------------------------------
+Error 20: Number too large
+
+Example code that generates error:
+var f3a, g, ffe;
+begin
+f3a := 4;
+g := 4399999;
+
+g := then;
+
+end.
+
+
+Output:
+Error, number too long detected.
+-------------------------------------------------------------------------------
+Error 21: Variable too large
+
+Example code that generates error:
+
+var f3aysreyreyrseryesryesryes, g, ffe;.
+
+Output:
+Error 21, Variable name length too long 
+-------------------------------------------------------------------------------
+Error 22: Missing identifier after procedure
+
+Example code that generates error:
+var f, n;
+procedure ;
+var ans1;
+begin
+ ans1:=n;
+ n:= n-1;
+ if n = 0 then f := 1;
+ if n > 0 then call fact;
+ f:=f*ans1;
+end;
+
+begin
+n:=3;
+call fact;
+write f
+end.
+
+
+Output:
+Error 22, Missing identifier after procedure
+
+-------------------------------------------------------------------------------
+Error 23: Symbol is a procedure and cannot be overwritten
+
+Example code that generates error:
+
+var f, n;
+procedure fact;
+var ans1;
+begin
+ ans1:=n;
+ n:= n-1;
+ if n = 0 then f := 1;
+ if n > 0 then call fact;
+ f:=f*ans1;
+end;
+
+begin
+n:=3;
+call fact;
+fact := 3;
+write f
+end.
+
+Output:
+Error 23: Symbol is a procedure and cannot be overwritten
+-------------------------------------------------------------------------------
+Error 24: callsym must be followed by an identifier
+
+Example code that generates error:
+var f, n;
+procedure fact;
+var ans1;
+begin
+ ans1:=n;
+ n:= n-1;
+ if n = 0 then f := 1;
+ if n > 0 then call fact;
+ f:=f*ans1;
+end;
+
+begin
+n:=3;
+call ;
+write f
+end.
+
+
+Output:
+Error 24: callsym must be followed by an identifier
